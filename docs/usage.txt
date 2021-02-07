@@ -1,0 +1,30 @@
+applehealth2csv v1.0.1
+https://www.muquit.com/
+A program to convert Apple Watch health data to CSV or JSON files
+
+To export health data:
+  1. Launch Health App on iPhone.
+  2. Tap on the profile photo or icon at the top right corner.
+  3. Tap "Export All Health Data" at the bottom of the screen.
+
+ Health data will be saved to export.zip file. Use appropriate technique
+ to transfer the file to your machine. If export.zip is unzipped,
+ there will be export.xml among other files. This program can take
+ the zip file or the xml file as input.
+
+  -debug
+    	Print debug messages (default true)
+  -dir string
+    	Directory for creating CSV/JSON files (default "/path/working/directory")
+  -file string
+    	Path of export.zip or export.xml file (required)
+  -header
+    	Print JSON headers at first array (default true)
+  -json
+    	Print Output in JSON, default is CSV
+
+Example:
+ applehealth2csv -file export.zip -dir ./csv
+ applehealth2csv -file export.xml -dir ./csv -debug=false
+ applehealth2csv -json -file export.zip -dir ./json_h
+ applehealth2csv -json -header=false -file export.zip -dir ./json_nh

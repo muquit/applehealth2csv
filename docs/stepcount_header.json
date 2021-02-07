@@ -1,0 +1,57 @@
+[
+    [
+       "sourceName",
+       "sourceVersion",
+       "device",
+       "Type",
+       "unit",
+       "creationDate",
+       "startDate",
+       "endDate",
+       "value"
+    ],
+    [
+       "iPhone",
+       "14.3",
+       "<<HKDevice: 0x2834fdb80>, name:iPhone, manufacturer:Apple Inc., model:iPhone, hardware:iPhone11,8, software:14.3>",
+       "HKQuantityTypeIdentifierStepCount",
+       "count",
+       "2020-12-31 17:19:06 -0500",
+       "2020-12-31 17:05:33 -0500",
+       "2020-12-31 17:08:26 -0500",
+       "123"
+    ],
+    [
+       "Muhammad’s Apple Watch",
+       "7.2",
+       "<<HKDevice: 0x2834fee90>, name:Apple Watch, manufacturer:Apple Inc., model:Watch, hardware:Watch5,1, software:7.2>",
+       "HKQuantityTypeIdentifierStepCount",
+       "count",
+       "2020-12-31 17:24:23 -0500",
+       "2020-12-31 17:19:28 -0500",
+       "2020-12-31 17:20:24 -0500",
+       "123"
+    ],
+    [
+       "Muhammad’s Apple Watch",
+       "7.2",
+       "<<HKDevice: 0x2834fee90>, name:Apple Watch, manufacturer:Apple Inc., model:Watch, hardware:Watch5,1, software:7.2>",
+       "HKQuantityTypeIdentifierStepCount",
+       "count",
+       "2020-12-31 17:24:23 -0500",
+       "2020-12-31 17:20:27 -0500",
+       "2020-12-31 17:21:23 -0500",
+       "123"
+    ],
+    [
+       "Muhammad’s Apple Watch",
+       "7.2",
+       "<<HKDevice: 0x2834fee90>, name:Apple Watch, manufacturer:Apple Inc., model:Watch, hardware:Watch5,1, software:7.2>",
+       "HKQuantityTypeIdentifierStepCount",
+       "count",
+       "2020-12-31 17:28:27 -0500",
+       "2020-12-31 17:26:28 -0500",
+       "2020-12-31 17:26:34 -0500",
+       "123"
+    ]
+]
