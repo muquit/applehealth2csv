@@ -25,7 +25,7 @@
 - [Sample output](#sample-output)
   - [StepCount.csv](#stepcountcsv)
   - [StepCont.json - wihout header](#stepcontjson-wihout-header)
-  - [StepCont.json - with header](#stepcontjson-with-header)
+  - [StepCount.json - with header](#stepcountjson-with-header)
 - [Data analysis](#data-analysis)
 - [License (is MIT)](#license-is-mit)
 
@@ -305,7 +305,7 @@ sourceName,sourceVersion,device,Type,unit,creationDate,startDate,endDate,value
 ]
 ```
 
-## StepCont.json - with header
+## StepCount.json - with header
 ```yaml
 [
     [
