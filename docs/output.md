@@ -10,7 +10,7 @@
 @[:markdown](stepcount_noheader.json)
 ```
 
-## StepCont.json - with header
+## StepCount.json - with header
 ```yaml
 @[:markdown](stepcount_header.json)
 ```
