@@ -58,6 +58,9 @@ pijessie:
 	/bin/ls -lt $(PROGNAME_PI_JESSIE)
 	@echo ""
 
+.PHONY: vo2max
+vo2max:
+	go build -o vo2max ./cmd/vo2max
 
 doc:
 	@./scripts/mkdocs.sh
