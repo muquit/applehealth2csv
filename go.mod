@@ -1,6 +1,6 @@
 module github.com/muquit/applehealth2csv
 
-go 1.25
+go 1.25.0
 
 require github.com/AlekSi/applehealth v0.3.0
 

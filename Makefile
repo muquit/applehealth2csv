@@ -62,6 +62,10 @@ pijessie:
 vo2max:
 	go build -o vo2max ./cmd/vo2max
 
+.PHONY: healthplot
+healthplot:
+	go build -o healthplot ./cmd/healthplot/
+
 doc:
 	@./scripts/mkdocs.sh
 	@pandoc --standalone --to man README.md -o docs/applehealth2csv.1

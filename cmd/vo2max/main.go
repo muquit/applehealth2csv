@@ -34,20 +34,21 @@ func main() {
 	flag.BoolVar(&opts.json, "json", false, "Output stats as JSON")
 	flag.BoolVar(&opts.version, "version", false, "Print version and exit")
 
-	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "vo2max v%s\n\n", version)
-		fmt.Fprintf(os.Stderr, "Usage: vo2max --csv VO2Max.csv [options]\n\n")
-		fmt.Fprintf(os.Stderr, "Options:\n")
-		flag.PrintDefaults()
-		fmt.Fprintf(os.Stderr, "\nOutput:\n")
-		fmt.Fprintf(os.Stderr, "  Days: number of days with at least one VO2Max reading.\n")
-		fmt.Fprintf(os.Stderr, "        Multiple readings on the same day are averaged.\n")
-		fmt.Fprintf(os.Stderr, "\nExamples:\n")
-		fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv\n")
-		fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period 1y\n")
-		fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period all\n")
-		fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period 6m --json\n")
-	}
+    flag.Usage = func() {
+        fmt.Fprintf(os.Stderr, "vo2max v%s\n\n", version)
+        fmt.Fprintf(os.Stderr, "Usage: vo2max --csv VO2Max.csv [options]\n\n")
+        fmt.Fprintf(os.Stderr, "Options:\n")
+        flag.PrintDefaults()
+        fmt.Fprintf(os.Stderr, "\nOutput:\n")
+        fmt.Fprintf(os.Stderr, "  Days: number of days with at least one VO2Max reading.\n")
+        fmt.Fprintf(os.Stderr, "        Multiple readings on the same day are averaged.\n")
+        fmt.Fprintf(os.Stderr, "\nExamples:\n")
+        fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv\n")
+        fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period 1y\n")
+        fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period all\n")
+        fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period all --chart\n")
+        fmt.Fprintf(os.Stderr, "  vo2max --csv ./csv/VO2Max.csv --period 6m --json\n")
+    }
 
 	flag.Parse()
 
@@ -106,7 +107,7 @@ func main() {
 	fmt.Printf("Average : %.2f\n", summary.Average)
 	fmt.Printf("Min     : %.2f\n", summary.Min)
 	fmt.Printf("Max     : %.2f\n", summary.Max)
-	fmt.Printf("Readings: %d\n", summary.Count)
+	fmt.Printf("Days    : %d\n", summary.Count)
 	fmt.Printf("─────────────────────────────\n")
 
 	if opts.chart {

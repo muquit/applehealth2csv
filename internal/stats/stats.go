@@ -154,3 +154,61 @@ func sortByDate(records []parser.Record) {
 		return records[i].StartDate.Before(records[j].StartDate)
 	})
 }
+
+// AggregateForChart returns data aggregated appropriately for the given period.
+func AggregateForChart(records []parser.Record, period Period) []parser.Record {
+	switch period {
+	case Period1M, Period3M:
+		return DailyAverage(records)
+	case Period6M, Period1Y:
+		return WeeklyAverage(records)
+	default: // all
+		return MonthlyAverage(records)
+	}
+}
+
+// DownsampleToWidth reduces data points to fit terminal width.
+func DownsampleToWidth(records []parser.Record, width int) []parser.Record {
+	if len(records) <= width {
+		return records
+	}
+	bucketSize := len(records) / width
+	result := make([]parser.Record, 0, width)
+	for i := 0; i < len(records); i += bucketSize {
+		end := i + bucketSize
+		if end > len(records) {
+			end = len(records)
+		}
+		bucket := records[i:end]
+		sum := 0.0
+		for _, r := range bucket {
+			sum += r.Value
+		}
+		result = append(result, parser.Record{
+			StartDate: bucket[0].StartDate,
+			Value:     sum / float64(len(bucket)),
+		})
+	}
+	return result
+}
+
+// DailySum collapses multiple same-day readings into a daily total.
+// Use for cumulative metrics like steps, calories, distance.
+func DailySum(records []parser.Record) []parser.Record {
+	buckets := make(map[string]float64)
+	dates := make(map[string]time.Time)
+	for _, r := range records {
+		key := r.StartDate.Format("2006-01-02")
+		buckets[key] += r.Value
+		dates[key] = r.StartDate
+	}
+	result := make([]parser.Record, 0, len(buckets))
+	for key, sum := range buckets {
+		result = append(result, parser.Record{
+			StartDate: dates[key],
+			Value:     sum,
+		})
+	}
+	sortByDate(result)
+	return result
+}
